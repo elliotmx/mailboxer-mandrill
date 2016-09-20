@@ -1,4 +1,4 @@
-class Mailboxer::NotificationMailer < Mailboxer::BaseMailer
+class Mailboxer::NotificationMailer < BaseMandrillMailer
   #Sends an email for indicating a new notification to a receiver.
   #It calls new_notification_email.
   def send_email(notification, receiver)
@@ -10,8 +10,17 @@ class Mailboxer::NotificationMailer < Mailboxer::BaseMailer
     @notification = notification
     @receiver     = receiver
     set_subject(notification)
-    mail :to => receiver.send(Mailboxer.email_method, notification),
-         :subject => t('mailboxer.notification_mailer.subject', :subject => @subject),
-         :template_name => 'new_notification_email'
+   # mail :to => receiver.send(Mailboxer.email_method, notification),
+    #     :subject => t('mailboxer.notification_mailer.subject', :subject => @subject),
+     #    :template_name => 'new_notification_email'
+
+       merge_vars = {
+      "FIRST_NAME" => "holo",
+      "USER_URL" => "holo2",
+    }
+
+    
+      send_mandrill_mail(receiver.send(Mailboxer.email_method, message), subject, body)
+
   end
 end
