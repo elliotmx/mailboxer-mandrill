@@ -24,7 +24,8 @@ Gem::Specification.new do |s|
   # Development Gem dependencies
   s.add_runtime_dependency('rails', '>= 4.2.0')
   s.add_runtime_dependency('carrierwave', '>= 0.5.8')
-
+  s.add_runtime_dependency('mandrill-api')
+  
   if RUBY_ENGINE == "rbx" && RUBY_VERSION >= "2.1.0"
     # Rubinius has it's own dependencies
     s.add_runtime_dependency     'rubysl'
@@ -37,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('appraisal', '~> 1.0.0')
   s.add_development_dependency('shoulda-matchers', '~> 2')
   s.add_development_dependency('factory_girl', '~> 2.6.0')
-  s.add_development_dependency('mandrill-api')
+  
   # Population
   s.add_development_dependency('forgery', '>= 0.3.6')
   # Integration testing
