@@ -1,6 +1,6 @@
 require "mandrill"
 
-class BaseMandrillMailer < ActionMailer::Base
+class Mailboxer::BaseMandrillMailer < ActionMailer::Base
   default(
     :from => Mailboxer.default_from
     reply_to: "hello@example.com"
