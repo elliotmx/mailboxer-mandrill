@@ -44,6 +44,8 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
       "USER_URL" => "holo2",
     }
     
+     body = mandrill_template("welcome", merge_vars)
+     
       send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
 
   end
