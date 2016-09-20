@@ -27,7 +27,7 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
      #    :subject => t('mailboxer.message_mailer.subject_new', :subject => @subject),
       #   :template_name => 'new_message_email'
 
-    send_mandrill_mail(receiver.send(Mailboxer.email_method, message), subject, body)
+    send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
   end
 
   #Sends and email for indicating a reply in an already created conversation
@@ -44,7 +44,7 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
       "USER_URL" => "holo2",
     }
     
-      send_mandrill_mail(receiver.send(Mailboxer.email_method, message), subject, body)
+      send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
 
   end
 end

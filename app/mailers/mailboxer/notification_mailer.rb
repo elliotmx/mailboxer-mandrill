@@ -20,7 +20,7 @@ class Mailboxer::NotificationMailer < Mailboxer::BasemandrillMailer
     }
 
     
-      send_mandrill_mail(receiver.send(Mailboxer.email_method, message), subject, body)
+      send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
 
   end
 end
