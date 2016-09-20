@@ -2,7 +2,7 @@ require "mandrill"
 
 class Mailboxer::BasemandrillMailer < ActionMailer::Base
   default(
-    :from => Mailboxer.default_from
+    from: Mailboxer.default_from,
     reply_to: "hello@example.com"
   )
 
