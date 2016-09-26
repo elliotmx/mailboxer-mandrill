@@ -15,13 +15,12 @@ class Mailboxer::NotificationMailer < Mailboxer::BasemandrillMailer
      #    :template_name => 'new_notification_email'
 
     merge_vars = {
-      "FIRST_NAME" => "holo",
-      "USER_URL" => "holo2",
+      "MESSAGE" => @notification,
     }
 
-     body = mandrill_template("welcome", merge_vars)
+     body = mandrill_template("new_message", merge_vars)
     
-      send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
+    send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
 
   end
 end
