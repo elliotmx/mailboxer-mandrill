@@ -21,7 +21,8 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
     puts "#{@receiver.inspect}"
 
     merge_vars = {
-      "MESSAGE" => @message,
+      "MESSAGE" => @message.body,
+      "SENDER" => Spree::User.find(@message.sender_id).first_name
     }
 
     body = mandrill_template("new_inbox_message", merge_vars)
@@ -48,7 +49,8 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
       #   :template_name => 'reply_message_email'
 
     merge_vars = {
-      "MESSAGE" => @message,
+      "MESSAGE" => @message.body,
+      "SENDER" => Spree::User.find(@message.sender_id).first_name
     }
     
      body = mandrill_template("new_inbox_message", merge_vars)

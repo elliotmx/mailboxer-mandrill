@@ -19,8 +19,9 @@ class Mailboxer::NotificationMailer < Mailboxer::BasemandrillMailer
     #     :subject => t('mailboxer.notification_mailer.subject', :subject => @subject),
      #    :template_name => 'new_notification_email'
 
-    merge_vars = {
-      "MESSAGE" => @notification,
+   merge_vars = {
+      "MESSAGE" => @message.body,
+      "SENDER" => Spree::User.find(@message.sender_id).first_name
     }
 
      body = mandrill_template("new_inbox_message", merge_vars)
