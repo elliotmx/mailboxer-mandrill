@@ -3,7 +3,7 @@ require "mandrill"
 class Mailboxer::BasemandrillMailer < ActionMailer::Base
   default(
     from: Mailboxer.default_from,
-    reply_to: "hello@example.com"
+    reply_to: "hello@wedjourney.com"
   )
 
   private

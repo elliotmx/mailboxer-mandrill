@@ -18,7 +18,7 @@ class Mailboxer::NotificationMailer < Mailboxer::BasemandrillMailer
       "MESSAGE" => @notification,
     }
 
-     body = mandrill_template("new_message", merge_vars)
+     body = mandrill_template("new_inbox_message", merge_vars)
     
     send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
 

@@ -20,7 +20,7 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
       "MESSAGE" => @message,
     }
 
-    body = mandrill_template("new_message", merge_vars)
+    body = mandrill_template("new_inbox_message", merge_vars)
 
     #mail :to => receiver.send(Mailboxer.email_method, message),
      #    :subject => t('mailboxer.message_mailer.subject_new', :subject => @subject),
@@ -42,7 +42,7 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
       "MESSAGE" => @message,
     }
     
-     body = mandrill_template("new_message", merge_vars)
+     body = mandrill_template("new_inbox_message", merge_vars)
      
       send_mandrill_mail(receiver.send(Mailboxer.email_method, message), @subject, body)
 
