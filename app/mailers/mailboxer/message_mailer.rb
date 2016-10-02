@@ -16,6 +16,10 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
     @receiver = receiver
     set_subject(message)
     
+    puts "new message"
+    puts "#{@message.inspect}"
+    puts "#{@receiver.inspect}"
+
     merge_vars = {
       "MESSAGE" => @message,
     }
@@ -34,6 +38,11 @@ class Mailboxer::MessageMailer < Mailboxer::BasemandrillMailer
     @message  = message
     @receiver = receiver
     set_subject(message)
+
+    puts "reply message"
+    puts "#{@message.inspect}"
+    puts "#{@receiver.inspect}"
+
     #mail :to => receiver.send(Mailboxer.email_method, message),
      #    :subject => t('mailboxer.message_mailer.subject_reply', :subject => @subject),
       #   :template_name => 'reply_message_email'

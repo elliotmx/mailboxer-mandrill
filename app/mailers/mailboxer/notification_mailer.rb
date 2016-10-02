@@ -10,6 +10,11 @@ class Mailboxer::NotificationMailer < Mailboxer::BasemandrillMailer
     @notification = notification
     @receiver     = receiver
     set_subject(notification)
+
+    puts "new notification"
+    puts "#{@message.inspect}"
+    puts "#{@receiver.inspect}"
+
    # mail :to => receiver.send(Mailboxer.email_method, notification),
     #     :subject => t('mailboxer.notification_mailer.subject', :subject => @subject),
      #    :template_name => 'new_notification_email'
