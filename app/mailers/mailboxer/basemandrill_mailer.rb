@@ -9,7 +9,7 @@ class Mailboxer::BasemandrillMailer < ActionMailer::Base
   private
 
   def send_mandrill_mail(email, subject, body)
-    mail(to: email, subject: subject, body: body, content_type: "text/html")
+    mail(to: email, from:"Wedjourney <contact@wedjourney.com>", subject: subject, body: body, content_type: "text/html")
   end
 
   def mandrill_template(template_name, attributes)
